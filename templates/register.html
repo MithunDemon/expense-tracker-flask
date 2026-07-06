@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .register-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+            overflow: hidden;
+        }
+
+        .left-side {
+            background: linear-gradient(to right, #3d6df5, #56d3d3);
+            color: #000000;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .left-side img {
+            width: 180px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 50px rgb(0, 0, 0);
+        }
+
+        .right-side {
+            padding: 40px;
+        }
+
+        .btn-register {
+            background: #28a745;
+            color: #fff;
+            width: 100%;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .btn-register:hover {
+            background: #218838;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        body {
+
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+
+        }
+
+        main {
+            flex: 1;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        .tip {
+            background: #352740;
+            ;
+
+            backdrop-filter: blur(30px);
+
+            color: white;
+            animation: fadeDown 1s ease;
+
+
+        }
+
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(20);
+            }
+        }
+
+
+        .collapse ul li a {
+            color: white;
+        }
+
+        .collapse ul li a :hover {
+            color: orangered;
+            background-color: tr;
+        }
+
+
+
+        .bi {
+            color: white;
+            font-style: none;
+            padding-left: 30px;
+
+        }
+
+        .main {
+            font-size: 20px;
+            width: 40px;
+            color: white;
+            font-weight: bold;
+
+        }
+
+        .we {
+            width: 50vh;
+            height: 50vh;
+            border: none;
+            margin-top: 50px;
+            margin-right: 10px;
+            background-color: transparent;
+            box-shadow: 0 10px 50px rgba(211, 214, 233, 0.25);
+            animation: fadeLeft 2s ease;
+        }
+
+
+
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+
+
+        .container {
+            display: flex;
+        }
+
+        .hh {
+            padding-top: 70px;
+            color: white;
+            font-size: 57px;
+            text-align: center;
+            animation: fadeRight 1s ease-out;
+
+
+
+        }
+
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hh2 {
+            font-size: 77px;
+            color: rgba(11, 39, 194, 0.904);
+
+        }
+
+        .navbar-nav a {
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 0;
+            left: 0;
+            font-weight: 200;
+            transition: width 0.4s ease;
+
+        }
+
+
+        .nav-link {
+            color: white;
+        }
+
+        .navbar-nav a:hover {
+            border-bottom: 2px solid rgb(255, 208, 0);
+            width: 80px;
+            border-radius: 2px;
+            color: rgb(255, 208, 0);
+        }
+
+        .navbar-nav {
+            gap: 100px;
+            padding-left: 80%;
+        }
+
+        .navbar-brand {
+            color: white;
+        }
+
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+
+
+        }
+
+        .navbar-toggler-icon::before {
+            content: "\2630";
+            color: white;
+            font-size: 30px;
+
+        }
+
+
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-box {
+            max-width: 700px;
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+            margin-right: 6%;
+
+        }
+
+        .btn {
+            width: 150px;
+        }
+
+
+        .img1 {
+            width: 70%;
+            margin-left: 20%;
+        }
+
+
+
+        @media(max-width:750px) {
+            .container {}
+
+            .register-section {
+                margin-top: 30px;
+            }
+
+            .mb-3 {
+                width: 110%;
+                font-size: 18px;
+            }
+
+
+
+            .hero {
+                min-height: 90vh;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+
+
+            .card-box {
+                max-width: 700px;
+                width: 90%;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+                margin: 10px;
+
+            }
+
+            .btn {
+                width: 150px;
+            }
+
+
+            .img1 {
+                width: 70%;
+                margin-right: 40%;
+            }
+
+            .front {
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin: 40px;
+
+            }
+
+            .we {
+                width: 20vh;
+                height: 20vh;
+            }
+
+            .hh {
+                padding-top: 65px;
+                color: white;
+                font-size: 17px;
+                text-align: left;
+
+            }
+
+            .hh2 {
+                font-size: 26px;
+                color: rgba(11, 39, 194, 0.904);
+            }
+
+
+            .navbar-nav {
+                gap: 0px;
+            }
+
+            .mainimg {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+            }
+
+            .make {
+                padding-top: 30px;
+                font-size: 20px;
+            }
+
+            .card-img {
+                box-shadow: 0 10px 50px rgb(0, 0, 0);
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin-left: 200px;
+                margin-top: 50px;
+
+
+
+
+                margin-right: 200px;
+            }
+
+            .footer h5 {
+
+                font-size: 10px;
+            }
+
+            .footer-logo {
+                font-size: 20px
+            }
+
+            .footer p {
+                font-size: 10px;
+            }
+        }
+
+        .footer {
+            background: #000000;
+            color: #fff;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            color: #2ecc71;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer h5 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: #2ecc71;
+            padding-left: 5px;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, .2);
+            margin: 30px 0 20px;
+        }
+
+        .footer p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="flex-fill">
+        <!--NAVBER-->
+        <div class="sticky-top tip">
+            <nav class="navbar navbar-expand-lg tip">
+                <div class="container-fluid">
+                    <img src="{{ url_for('static',filename=('logo.png'))}}" alt=""
+                        style="width: 70px;height:70px;border-radius: 50%;">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+
+                            <a class="nav-link nav-login" href="{{ url_for('index') }}">Home</a>
+                            <a class="nav-link nav-register" href="{{ url_for('login') }}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container register-section">
+
+            <div class="row register-card w-100">
+
+                <!-- Left Side -->
+
+                <div class="col-md-5 left-side">
+
+
+                    <h2 style="text-align: center;font-size: 34px;">Expense Tracker</h2>
+
+                    <p class="text-center mt-3">
+                        Create your account and start tracking your daily income and expenses.
+                    </p>
+
+                </div>
+
+                <!-- Right Side -->
+
+                <div class="col-md-7 right-side">
+
+                    <h2 class="text-center mb-4">Create Account</h2>
+
+                    <form action="/register" method="POST">
+
+                        <div class="mb-3">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" class="form-control" placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Create password"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Confirm Password</label>
+                            <input type="password" name="confirm_password" class="form-control"
+                                placeholder="Confirm password" required>
+                        </div>
+
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+
+                        <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+                            {{ message }}
+
+
+                        </div>
+
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <button type="submit" class="btn-register">
+                            Register
+                        </button>
+
+                    </form>
+
+                    <p class="text-center mt-4">
+                        Already have an account?
+                        <a href="{{ url_for('login')}}">Login</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Logo & About -->
+                    <div class="col-md-4">
+                        <h3 class="footer-logo">Expense Tracker</h3>
+                        <p>
+                            Manage your income and expenses easily.
+                            Track your spending and achieve your financial goals.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+
+
+                    <!-- Contact -->
+                    <div class="col-md-4">
+                        <h5>Contact</h5>
+                        <p>Email: support@expensetracker.com</p>
+
+                        <p>India</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="text-center">
+                    <p class="mb-0">
+                        © 2026 Expense Tracker | Developed by Mithun
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

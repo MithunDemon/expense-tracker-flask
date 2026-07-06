@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Expense</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        .navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    font-size:24px;
+}
+
+.nav-link{
+    margin-left:10px;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:#0dcaf0 !important;
+}
+        .footer{
+    background:#1e293b;
+    color:#fff;
+    padding:40px 0 20px;
+    margin-top:60px;
+}
+
+.footer h5,
+.footer h6{
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.footer p{
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+.footer-links{
+    list-style:none;
+    padding:0;
+}
+
+.footer-links li{
+    margin-bottom:10px;
+}
+
+.footer-links a{
+    color:#cbd5e1;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#38bdf8;
+}
+
+.footer hr{
+    border-color:#475569;
+}
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="/dashboard">
+                💰 Expense Tracker
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_income">
+                            Add Income
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/add_expense">
+                            Add Expense
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/transactions">
+                            Transactions
+                        </a>
+                    </li>
+
+                   
+
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="/logout">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-5">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-danger text-white">
+
+                <h3>Add Expense</h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <form action="/add_expense" method="POST"  onsubmit="disableButton()">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Expense Category</label>
+
+                        <select class="form-select" name="category" required>
+
+                            <option value="">Select Category</option>
+
+                            <option>Food & Dining</option>
+                            <option>Groceries</option>
+                            <option>Fuel / Petrol</option>
+                            <option>Transportation</option>
+                            <option>Taxi / Cab</option>
+                            <option>House Rent</option>
+                            <option>Electricity Bill</option>
+                            <option>Water Bill</option>
+                            <option>Internet / WiFi</option>
+                            <option>Mobile Recharge</option>
+                            <option>Education</option>
+                            <option>Books</option>
+                            <option>Medical</option>
+                            <option>Healthcare</option>
+                            <option>Shopping</option>
+                            <option>Clothing</option>
+                            <option>Entertainment</option>
+                            <option>Travel</option>
+                            <option>Hotel</option>
+                            <option>Gift</option>
+                            <option>Gym & Fitness</option>
+                            <option>Pet Care</option>
+                            <option>Electronics</option>
+                            <option>Home Maintenance</option>
+                            <option>Vehicle Maintenance</option>
+                            <option>EMI / Loan</option>
+                            <option>Insurance</option>
+                            <option>Tax</option>
+                            <option>Business Expense</option>
+                            <option>Child Care</option>
+                            <option>Coffee</option>
+                            <option>Snacks</option>
+                            <option>Party</option>
+                            <option>Miscellaneous</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Amount</label>
+
+                        <input type="number" class="form-control" name="amount" placeholder="Enter Amount" required>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Description</label>
+
+                        <textarea class="form-control" name="description" rows="3"
+                            placeholder="Enter Description"></textarea>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Expense Date</label>
+
+                        <input type="date" class="form-control" name="transaction_date" required>
+
+                    </div>
+
+                    <button class="btn btn-danger" id="saveBtn" class="btn btn-success">
+                        Save Expense
+                    </button>
+
+                    <a href="/dashboard" class="btn btn-secondary">
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+   function disableButton() {
+    const btn = document.getElementById("saveBtn");
+    btn.disabled = true;
+    document.getElementById("btnText").innerHTML =
+        'Saving... <span class="spinner-border spinner-border-sm"></span>';
+}
+</script>
+
+
+    <footer class="footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h5>Expense Tracker</h5>
+
+                <p>
+                    Manage your income and expenses with ease.
+                    Track your finances anytime, anywhere.
+                </p>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h6>Quick Links</h6>
+
+                <ul class="footer-links">
+
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/add_income">Add Income</a></li>
+                    <li><a href="/add_expense">Add Expense</a></li>
+                    <li><a href="/logout">Logout</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h6>Contact</h6>
+
+                <p>Email : support@expensetracker.com</p>
+                
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            © 2026 Expense Tracker | Developed by Mithun
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

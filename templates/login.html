@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #eef4ff;
+
+        }
+
+        .login-page {
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 1050px;
+            height: 450px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        }
+
+        /* LEFT PANEL */
+
+        .left-panel {
+            background: linear-gradient(180deg, #5ed6d5, #3d8ef5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 35px;
+        }
+
+        .left-content {
+            text-align: center;
+        }
+
+        .money-img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .left-content h2 {
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .left-content p {
+            font-size: 15px;
+            line-height: 26px;
+            margin-bottom: 35px;
+            color: #eef4ff;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .feature {
+            flex: 1;
+            text-align: center;
+        }
+
+        .feature i {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, .25);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin: auto;
+            margin-bottom: 10px;
+                    padding-right: 30px;
+        }
+
+        .feature span {
+            font-size: 13px;
+        }
+
+        /* RIGHT PANEL */
+
+        .right-panel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 35px;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .form-box h1 {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #18233b;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* INPUT */
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            height: 48px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 0 15px;
+            margin-bottom: 18px;
+        }
+
+        .input-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            margin-left: 10px;
+            font-size: 15px;
+        }
+
+        .input-box i {
+            color: #888;
+        }
+
+        .eye {
+            cursor: pointer;
+        }
+
+        /* REMEMBER */
+
+        .remember {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .remember a {
+            text-decoration: none;
+            color: #3d8ef5;
+        }
+
+        /* LOGIN BUTTON */
+
+        .login-btn {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #3d6df5, #56d3d3);
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            transition: .3s;
+
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(61, 109, 245, .3);
+        }
+
+        /* DIVIDER */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 22px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            padding: 0 12px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* SOCIAL BUTTONS */
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .google-btn,
+        .facebook-btn {
+            flex: 1;
+            height: 45px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .google-btn:hover,
+        .facebook-btn:hover {
+            background: #f7f7f7;
+        }
+
+        /* REGISTER */
+
+        .register {
+            text-align: center;
+            margin-top: 22px;
+            color: #666;
+        }
+
+        .register a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #3d6df5;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:991px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .login-card {
+                height: auto;
+            }
+
+            .left-panel {
+                padding: 40px 25px;
+            }
+
+            .right-panel {
+                padding: 30px 20px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+
+        }
+
+
+        main {
+            flex: 1;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        .tip {
+            background: #352740;
+
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid black;
+            color: white;
+            animation: fadeDown 1s ease;
+
+
+        }
+
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(20);
+            }
+        }
+
+
+        .collapse ul li a {
+            color: white;
+        }
+
+        .collapse ul li a :hover {
+            color: orangered;
+            background-color: tr;
+        }
+
+
+
+        .bi {
+            color: white;
+            font-style: none;
+            padding-left: 30px;
+
+        }
+
+        .main {
+            font-size: 20px;
+            width: 40px;
+            color: white;
+            font-weight: bold;
+
+        }
+
+        .we {
+            width: 50vh;
+            height: 50vh;
+            border: none;
+            margin-top: 50px;
+            margin-right: 10px;
+            background-color: transparent;
+            box-shadow: 0 10px 50px rgba(211, 214, 233, 0.25);
+            animation: fadeLeft 2s ease;
+        }
+
+
+
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+
+
+        .container {
+            display: flex;
+        }
+
+        .hh {
+            padding-top: 70px;
+            color: white;
+            font-size: 57px;
+            text-align: center;
+            animation: fadeRight 1s ease-out;
+
+
+
+        }
+
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hh2 {
+            font-size: 77px;
+            color: rgba(11, 39, 194, 0.904);
+
+        }
+
+        .navbar-nav a {
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 0;
+            left: 0;
+            font-weight: 200;
+            transition: width 0.4s ease;
+
+        }
+
+
+        .nav-link {
+            color: white;
+        }
+
+        .navbar-nav a:hover {
+            border-bottom: 2px solid rgb(255, 208, 0);
+            width: 80px;
+            border-radius: 2px;
+            color: rgb(255, 208, 0);
+        }
+
+        .navbar-nav {
+            gap: 100px;
+            padding-left: 80%;
+        }
+
+        .navbar-brand {
+            color: white;
+        }
+
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+
+
+        }
+
+        .navbar-toggler-icon::before {
+            content: "\2630";
+            color: white;
+            font-size: 30px;
+
+        }
+
+
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-box {
+            max-width: 700px;
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(250, 199, 60, 0.747);
+            margin-right: 6%;
+            background-color: #34ad669f;
+
+        }
+
+        .btn {
+            width: 150px;
+        }
+
+
+        .img1 {
+            width: 70%;
+            margin-left: 20%;
+        }
+
+
+
+        @media(max-width:986px) {
+            .container {}
+
+
+            .hero {
+                min-height: 90vh;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .login-page {
+                margin: 180% 0%;
+                padding: 4%;
+
+
+            }
+
+
+            .features {
+                display: flex;
+
+
+            }
+
+            .feature {
+                flex: 1;
+                text-align: center;
+            }
+
+            .feature i {
+                width: 105px;
+                height: 105px;
+                background: rgba(255, 255, 255, .25);
+                border-radius: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                margin: auto;
+                margin-bottom: 10px;
+                padding-right: 30px;
+            }
+
+            .feature span {
+                font-size: 20px;
+            }
+
+            .input-box {
+                display: flex;
+                align-items: center;
+                height: 48px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+
+                margin-bottom: 18px;
+            }
+
+            .input-box input {
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 0px;
+
+                font-size: 15px;
+            }
+
+
+
+            .card-box {
+                max-width: 700px;
+
+                width: 90%;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+                margin: 10px;
+
+            }
+
+            .btn {
+                width: 150px;
+            }
+
+
+            .img1 {
+                width: 70%;
+                margin-right: 40%;
+            }
+
+            .front {
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin: 40px;
+
+            }
+
+            .we {
+                width: 20vh;
+                height: 20vh;
+            }
+
+            .hh {
+                padding-top: 65px;
+                color: white;
+                font-size: 17px;
+                text-align: left;
+
+            }
+
+            .hh2 {
+                font-size: 26px;
+                color: rgba(11, 39, 194, 0.904);
+            }
+
+
+            .navbar-nav {
+                gap: 0px;
+            }
+
+            .mainimg {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+            }
+
+            .make {
+                padding-top: 30px;
+                font-size: 20px;
+            }
+
+            .card-img {
+                box-shadow: 0 10px 50px rgb(0, 0, 0);
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin-left: 200px;
+                margin-top: 50px;
+
+
+
+
+                margin-right: 200px;
+            }
+
+            .footer h5 {
+    
+      font-size: 10px;
+    }
+     .footer-logo {
+      font-size: 20px  
+    }
+    .footer p {
+      font-size: 10px;
+    }
+        }
+
+        .footer {
+            background: #000000;
+            color: #fff;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            color: #2ecc71;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer h5 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: #2ecc71;
+            padding-left: 5px;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, .2);
+            margin: 30px 0 20px;
+        }
+
+        .footer p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="flex-fill">
+        <!--NAVBER-->
+        <div class="sticky-top tip">
+            <nav class="navbar navbar-expand-lg tip">
+                <div class="container-fluid">
+                    <img src="{{ url_for('static',filename='/logo.png')}}" alt=""
+                        style="width: 70px;height:70px;border-radius: 50%;">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+
+                            <a class="nav-link nav-login" href="{{ url_for('index')}}">Home</a>
+                            <a class="nav-link nav-register" href="{{ url_for('register')}}">register</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="container-fluid login-page">
+
+            <div class="login-card">
+
+                <div class="row g-0">
+
+                    <!-- Left Side -->
+
+                    <div class="col-lg-5 left-panel">
+
+                        <div class="left-content">
+
+
+                            <h2>Expense Tracker</h2>
+
+                            <p>
+                                Track your income and expenses easily.
+                                Manage your money and achieve your goals.
+                            </p>
+
+                            <div class="features">
+
+                                <div class="feature">
+                                    <i class="bi bi-bar-chart-line-fill"></i>
+                                    <span>Track Expenses</span>
+                                </div>
+
+                                <div class="feature">
+                                    <i class="bi bi-pie-chart-fill"></i>
+                                    <span>View Reports</span>
+                                </div>
+
+                                <div class="feature">
+                                    <i class="bi bi-bullseye"></i>
+                                    <span>Achieve Goals</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Side -->
+
+                    <div class="col-lg-7 right-panel">
+
+                        <div class="form-box">
+
+                            <h1>Welcome Back</h1>
+
+                            <p class="subtitle">
+                                Login to your account and continue
+                            </p>
+
+                            <form action="/login" method="POST">
+
+                                <label>Email Address</label>
+
+                                <div class="input-box">
+                                    <i class="bi bi-envelope"></i>
+
+                                    <input type="email" name="email" placeholder="Enter your email" required>
+                                </div>
+
+                                <label>Password</label>
+
+                                <div class="input-box">
+                                    <i class="bi bi-lock"></i>
+
+                                    <input type="password" name="password" placeholder="Enter your password" required>
+
+                                    <i class="bi bi-eye eye"></i>
+
+                                </div>
+
+                                <div class="remember">
+
+                                    <div>
+                                        <input type="checkbox">
+                                        Remember me
+                                    </div>
+
+                                    <a href="#">Forgot Password?</a>
+
+                                </div>
+
+                                <button class="login-btn">
+                                    <i class="bi bi-lock-fill"></i>
+                                    Login
+                                </button>
+
+                            </form>
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Logo & About -->
+                    <div class="col-md-4">
+                        <h3 class="footer-logo">Expense Tracker</h3>
+                        <p>
+                            Manage your income and expenses easily.
+                            Track your spending and achieve your financial goals.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+
+
+                    <!-- Contact -->
+                    <div class="col-md-4">
+                        <h5>Contact</h5>
+                        <p>Email: support@expensetracker.com</p>
+                       
+                        <p>India</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="text-center">
+                    <p class="mb-0">
+                        © 2026 Expense Tracker Developed by Mithun
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

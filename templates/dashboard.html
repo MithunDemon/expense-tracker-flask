@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Expense Tracker</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+        }
+
+        /* Sidebar */
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #1e293b;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 25px 20px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            text-decoration: none;
+            color: #cbd5e1;
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: .3s;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li.active a {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        /* Main Content */
+
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        /* Topbar */
+
+        .topbar {
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .topbar h3 {
+            color: #1e293b;
+            font-weight: bold;
+        }
+
+        /* Cards */
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+        }
+
+        .card h5 {
+            font-size: 18px;
+        }
+
+        .card h2 {
+            margin-top: 15px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .income-card {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+
+        .expense-card {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        }
+
+        /* Transaction Table */
+
+        .table{
+    margin-top:20px;
+}
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.table thead{
+    background:#2563eb;
+    color:white;
+}
+
+.table th,
+.table td{
+    text-align:center;
+    vertical-align:middle;
+    padding:12px;
+}
+
+        /* Responsive */
+
+        @media(max-width:992px) {
+
+            .sidebar {
+                width: 200px;
+
+            }
+
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+            .table{
+    min-width:700px;
+}
+
+.table th,
+.table td{
+    white-space:nowrap;
+    font-size:14px;
+}
+
+
+             
+
+        }
+
+        .navbar {
+            height: 120px;
+        }
+
+        .navbar h4 {
+            color: #1e293b;
+        }
+
+        .navbar span {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .dashboard-footer{
+    background:#1e293b;
+    color:white;
+    margin-top:60px;
+    padding:40px 0 20px;
+    margin-left: 18%;
+}
+
+.dashboard-footer h5,
+.dashboard-footer h6{
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.dashboard-footer p{
+    color:#d1d5db;
+}
+
+.footer-links{
+    list-style:none;
+    padding:0;
+}
+
+.footer-links li{
+    margin-bottom:10px;
+}
+
+.footer-links a{
+    color:#d1d5db;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#38bdf8;
+}
+
+.dashboard-footer hr{
+    border-color:#475569;
+    margin:25px 0;
+}
+
+@media(max-width:768px){
+
+     .dashboard-footer{
+    background:#1e293b;
+    color:white;
+    margin-top:60px;
+    padding:40px 0 20px;
+    margin-left: 0px;
+   
+}
+
+.dashboard-footer{
+    text-align:center;
+}
+
+.footer-links{
+    margin-bottom:20px;
+}
+
+}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2 class="logo">
+            <i class="bi bi-wallet2"></i>
+            Expense Tracker
+        </h2>
+
+        <ul>
+
+            <li class="active">
+                <a href="/dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('add_income') }}">
+                    <i class="bi bi-plus-circle"></i>
+                    Add Income
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('add_expense') }}">
+                    <i class="bi bi-dash-circle"></i>
+                    Add Expense
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('transactions') }}">
+                    <i class="bi bi-clock-history"></i>
+                    Transactions
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('profile') }}">
+                    <i class="bi bi-person-circle"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main-content">
+
+        <!-- Navbar -->
+
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4">
+
+            <h4 class="fw-bold mb-0">
+                Expense Tracker Dashboard
+            </h4>
+
+            <div class="ms-auto">
+
+                <span class="me-3">
+                    Welcome,
+                    <strong>{{ fullname }}</strong>
+                </span>
+
+                <a href="/logout" class="btn btn-danger btn-sm">
+                    Logout
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!-- Cards -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-4">
+
+                <div class="card income-card">
+
+                    <h5>Total Income</h5>
+
+                    <h2>₹{{ total_income }}</h2>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card expense-card">
+
+                    <h5>Total Expense</h5>
+
+                    <h2>₹{{ total_expense }}</h2>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card balance-card">
+
+                    <h5>Balance</h5>
+
+                    <h2>₹{{ balance }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Transactions -->
+
+        <div class="card mt-5 p-4">
+
+            <h4 class="mb-3">
+                Recent Transactions
+            </h4>
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead>
+
+            <tr>
+
+                <th>Date</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for t in transactions %}
+
+            <tr>
+
+                <td>{{ t.transaction_date }}</td>
+                <td>{{ t.category }}</td>
+                <td>{{ t.type }}</td>
+                <td>₹{{ t.amount }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+        </div>
+
+    </div>
+
+
+    <footer class="dashboard-footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h5>💰 Expense Tracker</h5>
+
+                <p>
+                    Track your income and expenses anytime, anywhere.
+                </p>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h6>Quick Links</h6>
+
+                <ul class="footer-links">
+
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/add_income">Add Income</a></li>
+                    <li><a href="/add_expense">Add Expense</a></li>
+                    <li><a href="/transactions">Transactions</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h6>Account</h6>
+
+                <ul class="footer-links">
+
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            © 2026 Expense Tracker | Developed by Mithun
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
