@@ -6,13 +6,14 @@ app = Flask(__name__)
 
 def get_connection():
     return mysql.connector.connect(
-        host="gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com",
+        host="gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
         port=4000,
-        user="2Fg93V8C4Zpwxen.root",
-        password="JaenyZiDaBvi4WwE",
+        user="2DACk14kGGQqSTF.root",
+        password="z5Q0JOLfMLQQ8AFO",
         database="expense_tracker",
-        ssl_verify_cert=True,
-        ssl_ca="isrgrootx1.pem"
+       charset="utf8mb4",
+        use_pure=True,
+        ssl_verify_cert=True
     )
 
 
