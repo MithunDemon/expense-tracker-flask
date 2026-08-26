@@ -46,6 +46,31 @@ def get_connection():
 def index():
     return render_template("index.html")
 
+@app.route("/test-db")
+def test_db():
+
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT 1")
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return f"""
+            <h2>Database Connection Successful!</h2>
+            <p>Result: {result}</p>
+        """
+
+    except Exception as e:
+
+        return f"""
+            <h2>Database Connection Failed</h2>
+            <p>{str(e)}</p>
+        """, 500
+
 
 # =========================================================
 # REGISTER
