@@ -32,7 +32,7 @@ def get_connection():
         port=4000,
         user="2Fg93V8C4Zpwxen.root",
         password=os.environ["TIDB_PASSWORD"],
-        database="expense_tracker",
+        database="expense_tracker_new",
         ssl_verify_cert=True,
         ssl_verify_identity=True
     )
