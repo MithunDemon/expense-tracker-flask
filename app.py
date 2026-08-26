@@ -9,7 +9,7 @@ def get_connection():
         host="gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com",
         port=4000,
         user="2Fg93V8C4Zpwxen.root",
-        password="y7xqFP61TpEcN694",
+        password="iVD4Q3Y5GpmzwZUG",
         database="expense_tracker",
         ssl_verify_cert=True,
         ssl_ca="isrgrootx1.pem"
