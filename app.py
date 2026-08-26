@@ -65,13 +65,10 @@ def test_db():
         """
 
     except Exception as e:
-
         return f"""
             <h2>Database Connection Failed</h2>
             <p>{str(e)}</p>
         """, 500
-
-
 # =========================================================
 # REGISTER
 # =========================================================
